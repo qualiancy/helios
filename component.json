@@ -10,6 +10,7 @@
   , "scripts": [
         "lib/helios.js"
       , "lib/helios/context.js"
+      , "lib/helios/handlers.js"
       , "lib/helios/proto.js"
       , "lib/helios/utils.js"
     ]
