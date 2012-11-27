@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Helios Sample Dashboard</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="/js/build.js"></script>
+    <script>
+      var helios = require('helios')
+        , panels = [ 'dashboard', 'reports', 'account' ];
+
+      helios.set('root', '/dashboard');
+
+      helios(function (ctx) {
+        var panel = ctx.url.substr(1) || 'dashboard';
+        if (!~panels.indexOf(panel)) panel = 'not-found';
+        render(panel);
+      });
+
+      function render (template) {
+        var html = document.getElementById(template + '-template').innerHTML
+          , target = document.getElementById('board');
+        target.innerHTML = html;
+      }
+    </script>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Helios Sample Dashboard</h1>
+    </div>
+    <div id="links">
+      <ul>
+        <li><a href="./">Dashboard</a></li>
+        <li><a href="./reports">Reports</a></li>
+        <li><a href="./account">Account</a></li>
+      </ul>
+    </div>
+    <div id="board"></div>
+
+    <script id="dashboard-template" type="text/x-template">
+      <h2>Dashboard</h2>
+      <p>This is the dashboard.</p>
+    </script>
+
+    <script id="reports-template" type="text/x-template">
+      <h2>Reports</h2>
+      <p>This is the reports list.</p>
+    </script>
+
+    <script id="account-template" type="text/x-template">
+      <h2>Account</h2>
+      <p>This is your account.</p>
+    </script>
+
+    <script id="not-found-template" type="text/x-template">
+      <h2>Not Found</h2>
+      <p>This panel does not exist.</p>
+    </script>
+
+  </body>
+</html>
