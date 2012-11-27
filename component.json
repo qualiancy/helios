@@ -9,7 +9,14 @@
   , "main": "lib/helios.js"
   , "scripts": [
         "lib/helios.js"
+      , "lib/helios/context.js"
+      , "lib/helios/proto.js"
+      , "lib/helios/utils.js"
     ]
-  , "dependencies": {}
+  , "dependencies": {
+        "qualiancy/drip": "1.0.0"
+      , "qualiancy/facet": "0.3.0"
+      , "qualiancy/tea-extend": "0.1.0"
+    }
   , "development": {}
 }
