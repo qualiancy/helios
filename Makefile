@@ -6,27 +6,13 @@ REPORTER = spec
 # Tests
 # 
 
-test: test-node test-browser 
-
-test-node: 
-	@printf "\n  ==> [Node.js]"
-	@NODE_ENV=test ./node_modules/.bin/mocha \
-		--require ./test/bootstrap \
-		--reporter $(REPORTER) \
-		$(TESTS)
-
-test-browser: build
-	@printf "\n  ==> [Phantom.Js]"
-	@./node_modules/.bin/mocha-phantomjs \
-		--R ${REPORTER} \
-		./test/browser/index.html
-
-test-cov: lib-cov
-	@helios_COV=1 NODE_ENV=test ./node_modules/.bin/mocha \
-		--require ./test/bootstrap \
-		--reporter html-cov \
-		$(TESTS) \
-		> coverage.html
+test: clean-test build
+	@mkdir ./test/js
+	@cp ./build/build.js ./test/js/build.js
+	@cp ./node_modules/chai/chai.js ./test/js/chai.js
+	@cp ./node_modules/mocha/mocha.js ./test/js/mocha.js
+	@cp ./node_modules/mocha/mocha.css ./test/js/mocha.css
+	@./node_modules/.bin/serve test
 
 #
 # Components
@@ -50,15 +36,13 @@ lib-cov:
 # Clean up
 # 
 
-clean: clean-components clean-cov
+clean: clean-components clean-test
 
 clean-components:
 	@rm -rf build
 	@rm -rf components
 
-clean-cov:
-	@rm -rf lib-cov
-	@rm -f coverage.html
+clean-test:
+	@rm -fr ./test/js
 
-
-.PHONY: clean clean-components clean-cov test test-cov test-node test-browser lib-cov
+.PHONY: clean clean-components test

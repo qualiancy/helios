@@ -23,6 +23,6 @@
         "chai": "*"
       , "component": "*"
       , "mocha": "*"
-      , "mocha-phantomjs": "*"
+      , "serve": "*"
     }
 }

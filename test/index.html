@@ -3,21 +3,20 @@
   <head>
     <title>Browser Tests (helios)</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
-    <script src="../../node_modules/mocha/mocha.js"></script>
-    <script src="../../node_modules/chai/chai.js"></script>
+    <link rel="stylesheet" href="./js/mocha.css" />
+    <script src="./js/mocha.js"></script>
+    <script src="./js/chai.js"></script>
     <script>
       mocha.setup('bdd')
       var should = chai.should();
     </script>
-    <script src="../../build/build.js"></script>
+    <script src="./js/build.js"></script>
     <script>
       helios = require('helios');
     </script>
-    <!-- <script src="../test.js"></script> -->
+    <script src="./helios.js"></script>
     <script>onload = function () {
-      if (window.mochaPhantomJS) mochaPhantomJS.run()
-      else mocha.run();
+      mocha.run();
     }
     </script>
   </head>
