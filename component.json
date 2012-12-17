@@ -15,7 +15,8 @@
       , "lib/helios/utils.js"
     ]
   , "dependencies": {
-        "qualiancy/drip": "1.0.0"
+        "qualiancy/cell-ev": "0.1.0"
+      , "qualiancy/drip": "1.0.0"
       , "qualiancy/facet": "0.3.0"
       , "qualiancy/sherlock": "1.0.0"
       , "qualiancy/tea-extend": "0.1.0"
