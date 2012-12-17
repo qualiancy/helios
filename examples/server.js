@@ -55,3 +55,5 @@ require('http').createServer(function (req, res) {
       break;
   }
 }).listen(3000);
+
+console.log('listening on port 3000');
