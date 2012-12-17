@@ -1,7 +1,7 @@
 {
     "name": "helios"
   , "repo": "qualiancy/helios"
-  , "version": "0.1.0"
+  , "version": "0.2.0"
   , "description": "Manage HTML5 pushState changes like a Node.js server."
   , "license": "MIT"
   , "keywords": [
