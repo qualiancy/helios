@@ -9,9 +9,9 @@
   , "main": "lib/helios.js"
   , "scripts": [
         "lib/helios.js"
+      , "lib/helios/client.js"
       , "lib/helios/context.js"
       , "lib/helios/handlers.js"
-      , "lib/helios/proto.js"
       , "lib/helios/utils.js"
     ]
   , "dependencies": {
