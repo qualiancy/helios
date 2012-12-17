@@ -58,7 +58,7 @@ a `request` event, helio can instructed to redirect
 the browser to a url under it's root. See `.redirect()`
 for more information.
 
-```
+```js
 helios('/blog/some-article', { hello: 'universe' });
 helios.redirect('/blog/some-article', { hello: 'universe' });
 ```
