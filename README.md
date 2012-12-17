@@ -33,7 +33,7 @@ used in three distinct ways.
 var helio = require('helios');
 ```
 
-##### add request listeners
+**add request listeners**
 
 Similiar to the way node.js handles requests
 to an http server, helios will emit a `request`
@@ -51,7 +51,7 @@ helios.on('request', function (ctx) {
 });
 ```
 
-##### redirect shorthand
+**redirect shorthand**
 
 To trigger a pushState or hash change, and emit
 a `request` event, helio can instructed to redirect
@@ -63,7 +63,7 @@ helios('/blog/some-article', { hello: 'universe' });
 helios.redirect('/blog/some-article', { hello: 'universe' });
 ```
 
-##### start application
+**start application**
 
 If you disable autostart, helios can be started
 by simply invoking it. This should occur after the
@@ -83,7 +83,7 @@ helios.on('ready', function () {
 });
 ```
 
-#### Settings
+##### Settings
 
 Settings can be read or modified using the
 following methods: `.get(key)`, `.set(key, value)`,
@@ -94,7 +94,7 @@ following methods: `.get(key)`, `.set(key, value)`,
 - `hash change`: force hash change instead of pushState; default: **is pushstate not available**
 - `click`: emit redirects and request events for `a href` clicks in current root; default: **enabled**
 
-#### Events
+##### Events
 
 Since the helios export is a node.js style
 event-emitter, the api permits listening for
@@ -118,6 +118,10 @@ the url to pushstate.
 to root with hash.
 - Else, continue as expected emitting the first request.
 
+```js
+helios.start();
+```
+
 
 ### .stop ()
 
@@ -125,6 +129,10 @@ to root with hash.
 Remove all of the dom listeners, effectively turning
 off the helios client. Useful in tests but probably shouldn't
 be used in production.
+
+```js
+helios.stop();
+```
 
 
 ### .url ([url])
@@ -134,7 +142,12 @@ be used in production.
 If no parameters are provided, will return the
 current url (without root) that is active. If a
 url is provided, it will normalize and decode uri
-components.
+components. Works the same whether using pushState
+or hash change.
+
+```js
+var current = helios.url();
+```
 
 
 ### .redirect (url, [state])
